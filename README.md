@@ -16,7 +16,7 @@ For following through these instructions you can take two approaches:
 
 2. Follow through the instructions and apply the changes to your already existing bookstore API repository.
 
-We'd recomend taking option 2 above as it will help piece together the job of the different files but if you have any problems option 1 (the end result) is there too.
+We'd recomend taking option 2 above as it will help piece together the job of the different files but if you have any problems then option 1 (the end result) is there too.
 
 ### Step 1 - Create the unit tests
 
