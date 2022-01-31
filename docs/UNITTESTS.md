@@ -42,3 +42,5 @@ class GetBooksTest(unittest.TestCase):
 **Note** You might need to tweak the test if your API returns more than 3 books 🙌
 
 You can see a full version of this setup in [this repository here](../tests)
+
+Thats the unit tests ready to go, now head back to the README and move on to [Step 2 - CircleCI setup](../README.md)

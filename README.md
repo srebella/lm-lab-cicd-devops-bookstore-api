@@ -25,3 +25,6 @@ Firstly lets introduce a few Python unit tests.
 Don't worry if you don't code in Python we'll guide you through it and the focus for the DevOps programme isn't really Python, we're just using it as a means by which to have an application to be built and tested.
 
 Head over to the [unit test instructions](./docs/UNITTESTS.md) to add in the tests
+
+### Step 2 - CircleCI setup
+
