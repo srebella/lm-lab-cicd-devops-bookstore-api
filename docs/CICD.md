@@ -85,3 +85,8 @@ All things being well it should run your pipeline and you should see a success m
 
 ![CircleCI successful build](./images/circle_build.png "CircleCI successful build")
 
+Pat yourself on your back and grab a drink!! ☕️
+
+You've configured the build and test (essentially the CI - Continuous Integration) phase of the pipeline.
+
+Head back to the [README to finish off with step 3](../README.md) and let's get that CD - Continuous Delivery phase done.
