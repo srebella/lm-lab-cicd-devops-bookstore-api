@@ -28,3 +28,6 @@ Head over to the [unit test instructions](./docs/UNITTESTS.md) to add in the tes
 
 ### Step 2 - CircleCI setup
 
+Now you've got a few unit tests we can start the work on configuring a CI/CD tool. In the case of this tutorial, we'll utilise [CircleCI](https://circleci.com/).
+
+Head over to the [CircleCI instructions](./docs/CICD.md) to get things setup.
