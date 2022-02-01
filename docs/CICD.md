@@ -56,3 +56,32 @@ Head over to CircleCI and [Signup for a new account](https://circleci.com/signup
 Sign up using your GitHub account and this will mean you'll automatically be able to add your GitHub repositories as CircleCI projects. 
 
 Once you've signed up head to step 3 to configure your project.
+
+### Step 3 - Configure Circle project
+
+Navigate to the **Projects** section of CircleCI. You should see a screen that looks similar to the image below:
+
+![CircleCI projects screen](./images/circle_projects.png "CircleCI projects screen")
+
+You should see your **devops-bookstore-api** GitHub project listed. (CircleCI will automatically read your public repositories)
+
+Click the **Set Up Project** button
+
+It should pop up a dialog where it scans for CircleCI config and look similar to this image:
+
+![CircleCI scan dialog](./images/circle_scan.png "CircleCI scan dialog")
+
+You've already configured your pipeline so choose the **If you already have...** option.
+
+It will then ask you for the branch that the `config.yml` is located on. This will be either **master** or **main** depending on the nature of how you have set up your repository. You'll know you have entered the right branch when you see a green tick and the message:
+
+```
+.circleci/config.yml found on this branch
+```
+
+Click **Let's Go**
+
+All things being well it should run your pipeline and you should see a success message:
+
+![CircleCI successful build](./images/circle_build.png "CircleCI successful build")
+
