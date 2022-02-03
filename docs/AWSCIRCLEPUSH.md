@@ -85,5 +85,12 @@ Now the required environment variables are there, let's see if the build pipelin
 
 After you've had your drink, have a check of the pipeline - did it run sucessfully?
 
+If it didn't have a look at the logs on CircleCI, some likely causes:
+
+* Incorrect YAML indentation - That pesky YAML needs to be indented correct. Try comparing it with the example file.
+* Missing or incorrect environment variable - Double check your CircleCI environment variables. Have you done them all? Are the name and values all correct?
+
+If your build "went green" have a look at your ECR registry - you should see a brand new Docker image all ready to go 🚀 In the image below you can see a succesful build in CircleCI, build number XXX which resulted in a Docker image with the tag 1.XXXX
+
 
 
