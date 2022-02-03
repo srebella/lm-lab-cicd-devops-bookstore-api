@@ -90,7 +90,21 @@ If it didn't have a look at the logs on CircleCI, some likely causes:
 * Incorrect YAML indentation - That pesky YAML needs to be indented correct. Try comparing it with the example file.
 * Missing or incorrect environment variable - Double check your CircleCI environment variables. Have you done them all? Are the name and values all correct?
 
-If your build "went green" have a look at your ECR registry - you should see a brand new Docker image all ready to go 🚀 In the image below you can see a succesful build in CircleCI, build number XXX which resulted in a Docker image with the tag 1.XXXX
+If your build "went green" have a look at your ECR registry - you should see a brand new Docker image all ready to go 🚀 
+
+In the images below you can see a succesful build in CircleCI, build number XXX which resulted in a Docker image with the tag 1.XXXX
+
+![CircleCI Build Number](./images/circle_build_number_ecr.png "CircleCI Build Number")
+
+![AWS Docker image tagged](./images/awc_ecr_image_tag.png "AWS Docker image tagged")
+
+### Step 4 - You did it!
+
+You've done it 🚀 🚀 🚀 
+
+You've successfully automated a continuous integration and continuous delivery pipeline. You could now use that Docker image and deploy it using your lovely GitOps pipeline!!!
+
+Time to celebrate and don't forget those screenshots!!!
 
 
 
