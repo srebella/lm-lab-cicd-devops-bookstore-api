@@ -56,3 +56,34 @@ Currently the [aws-ecr orb](https://circleci.com/developer/orbs/orb/circleci/aws
 If you browse the orb documentation you can see it mentions different configuration parameters such as the `account-url`, `aws-access-key-id` and the `aws-secret-access-key`. Those types of *secrets* shouldn't be kept within the code so we'll make use of [storing variables in the CircleCI project](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project).
 
 
+On the CircleCI dashboard navigate to your new project and go into the **Project Settings**
+
+![CircleCI projects settings](./images/circle_projectsettings.png "CircleCI project settings")
+
+Once there click on **Environment Variables** and click **Add Environment Variable**
+
+Add the following environment variables, entering the name exactly as shown:
+
+| Name        | Value       |
+| ----------- | ----------- |
+| AWS_ACCESS_KEY_ID       | Enter the value for your AWS Access Key Id. You can create a new access key and secret or alternatively utilise the same one you are using with Terraform.     |
+| AWS_SECRET_ACCESS_KEY      | Enter the value for your AWS Secret Access Key. You can create a new access key and secret or alternatively utilise the same one you are using with Terraform.     |
+| AWS_REGION | eu-west-2 |
+| AWS_ECR_ACCOUNT_URL | This can be found by going into the AWS console and navigating to ECR. Under the **URI** of your container registry, it is the URL before the first forward slash. EG. On the image below the AWS_ECR_ACCOUNT_URL would be `123456789012.dkr.ecr.eu-west-2.amazonaws.com`
+
+![AWS ECR URL](./images/aws_ecr_url.png "AWS ECR URL")
+
+Once you have configured your **Environment Variables** it should look similar to the image below:
+
+![CircleCI AWS Environment Variables](./images/circle_aws_env_var.png "CircleCI AWS Environment Variables")
+
+Now the required environment variables are there, let's see if the build pipeline works.
+
+**Commit** and **Push** your changes back to GitHub. CircleCI should automatically spot it and kick into action.....Grab yourself a drink whilst it builds 🙌
+
+### Step 3 - Review build and ECR
+
+After you've had your drink, have a check of the pipeline - did it run sucessfully?
+
+
+
