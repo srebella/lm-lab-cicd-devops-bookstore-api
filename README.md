@@ -33,3 +33,11 @@ Now you've got a few unit tests we can start the work on configuring a CI/CD too
 Head over to the [CircleCI instructions](./docs/CICD.md) to get things setup.
 
 ### Step 3 - CircleCI pushing docker image
+
+The next phase is Cloud provider specific. Here you'll update your pipeline to push to your target container registry.
+
+For AWS, head over to the [AWS and Circle instructions](./docs/AWSCIRCLEPUSH.md)
+
+For Google Cloud, head over to the GCP and Circle instructions
+
+For Azure, head over to the Azure and Circle instructions

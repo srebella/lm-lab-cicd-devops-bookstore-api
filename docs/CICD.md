@@ -49,6 +49,8 @@ Firstly we give the workflow a name, in our case `test-build-push-image`. Then w
 
 Ok so thats a whistle stop tour of CircleCI config. Now it's time to set-up your CircleCI account. 
 
+When you're finished, don't forget to **Commit and Push** your changes back to GitHub.
+
 ### Step 2 - Create CircleCI account
 
 Head over to CircleCI and [Signup for a new account](https://circleci.com/signup/). 
