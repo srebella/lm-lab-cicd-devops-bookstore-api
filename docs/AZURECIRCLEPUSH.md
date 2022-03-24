@@ -51,7 +51,7 @@ Then we define the "repository" or `repo`. `repo: devops-bookstore-api` this wil
 
 Next we define how the Docker image will be tagged. CircleCI provides us with some [built in environment variables](https://circleci.com/docs/2.0/env-vars/#built-in-environment-variables) such as the build number. We make use of that to specify the tag as `1.$CIRCLE_BUILD_NUM`. For example if it was build number 7 then the tag of the image would be **1.7**.
 
-Finally we have the stage `requires` stage. By default CircleCI will run jobs in parallel. By specifying `requires` it means this stage of the build will NOT run until the `python/test` stage has completed.
+Finally we have the `requires` stage. By default CircleCI will run jobs in parallel. By specifying `requires` it means this stage of the build will NOT run until the `python/test` stage has completed.
 
 **NOTE:** Don't commit and push your changes just yet until we've configured Circle with access to your Azure account. If you do accidentally commit and push, don't worry the build will just fail at this point. 
 
@@ -75,7 +75,7 @@ Now create the new service account
 
 **IMPORTANT:** Make sure to replace the `REPLACEME` section with the output of your subscription ID from the previous command.
 
-**NOTE:** In production environments we would likely limit down the score of this service principal to having only container registry access.
+**NOTE:** In production environments we would likely limit down the scope of this service principal to having only container registry access.
 
 ```
 az ad sp create-for-rbac --role Contributor --scopes "/subscriptions/REPLACEME"
