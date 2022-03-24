@@ -55,7 +55,44 @@ Finally we have the stage `requires` stage. By default CircleCI will run jobs in
 
 **NOTE:** Don't commit and push your changes just yet until we've configured Circle with access to your Azure account. If you do accidentally commit and push, don't worry the build will just fail at this point. 
 
-### Step 2 - Configure Circle with Azure access
+### Step 2 - Create a service principal
+
+In order for CircleCI to authenticate with your Azure account you'll need to create a service principal.
+
+Using the command line, firstly make sure you're logged in to your Azure account
+
+```
+az login
+```
+
+Then you'll need to identify your subscription ID. Make a note of the output of this command:
+
+```
+az account show --query id -o tsv
+```
+
+Now create the new service account
+
+**IMPORTANT:** Make sure to replace the `REPLACEME` section with the output of your subscription ID from the previous command.
+
+**NOTE:** In production environments we would likely limit down the score of this service principal to having only container registry access.
+
+```
+az ad sp create-for-rbac --role Contributor --scopes "/subscriptions/REPLACEME"
+```
+
+This will then output the service principal, make a note of the details. It should look similar to the following:
+
+```
+{
+  "appId": "afd53bvwdg-1111-2222-3333-6a6b4b1630ca",
+  "displayName": "azure-cli-2022-03-24-21-24-41",
+  "password": "uZZZZZZqwqMUP67uA7.3W_F13XE~4-uhb",
+  "tenant": "123456-a123-4ee5-678e-agdbf34b81f9"
+}
+```
+
+### Step 3 - Configure Circle with Azure access
 
 Currently the [azure-acr orb](https://circleci.com/developer/orbs/orb/circleci/azure-acr) doesn't know how to access your Azure account.
 
@@ -70,20 +107,21 @@ Once there click on **Environment Variables** and click **Add Environment Variab
 
 Add the following environment variables, entering the name exactly as shown:
 
-| Name        | Value       |
-| ----------- | ----------- |
-| AZURE_SP       | Azure SP info here     |
-| AZURE_SP_PASSWORD      | Azure SP password here     |
+| Name              | Value                   |
+| ----------------- | ----------------------- |
+| AZURE_SP          | Use the **appId** value from your previously created service principal      |
+| AZURE_SP_PASSWORD | Use the **password** value from your previously created service principal  |
+| AZURE_SP_TENANT   | Use the **tenant** value from your previously created service principal     |
 
 Once you have configured your **Environment Variables** it should look similar to the image below:
 
-![CircleCI AWS Environment Variables](./images/circle_aws_env_var.png "CircleCI AWS Environment Variables")
+![CircleCI Azure Environment Variables](./images/circle_azure_env_var.png "CircleCI Azure Environment Variables")
 
 Now the required environment variables are there, let's see if the build pipeline works.
 
 **Commit** and **Push** your changes back to GitHub. CircleCI should automatically spot it and kick into action.....Grab yourself a drink whilst it builds 🙌
 
-### Step 3 - Review build and Azure container registry
+### Step 4 - Review build and Azure container registry
 
 After you've had your drink, have a check of the pipeline - did it run sucessfully?
 
@@ -96,11 +134,11 @@ If your build "went green" have a look at your Azure registry - you should see a
 
 In the images below you can see a succesful build in CircleCI, build number XXX which resulted in a Docker image with the tag 1.XXXX
 
-![CircleCI Build Number](./images/circle_build_number_ecr.png "CircleCI Build Number")
+![CircleCI Build Number](./images/circle_build_number_acr.png "CircleCI Build Number")
 
-![AWS Docker image tagged](./images/awc_ecr_image_tag.png "AWS Docker image tagged")
+![Azure Docker image tagged](./images/azure_acr_image_tag.png "Azure Docker image tagged")
 
-### Step 4 - You did it!
+### Step 5 - You did it!
 
 You've done it 🚀 🚀 🚀 
 
